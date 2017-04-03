@@ -5,7 +5,7 @@ import utility.Common;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SolutionTest {
+class HammingDistance461Test {
 
     @Test
     public void testInput1And4() {
