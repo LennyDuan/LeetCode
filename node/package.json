@@ -7,6 +7,7 @@
     "build": "babel app --out-dir build --source-maps --copy-files",
     "test": "mocha ./test --require babel-register --require babel-polyfill --recursive",
     "lint": "eslint app --fix",
+    "eslint-install": "(export PKG=eslint-config-airbnb; npm info \"$PKG@latest\" peerDependencies --json | command sed 's/[\\{\\},]//g ; s/: /@/g' | xargs npm install --save-dev \"$PKG@latest\")",
     "test-single": "mocha $1 --require babel-register --require babel-polyfill"
   },
   "keywords": [
@@ -15,7 +16,7 @@
   "author": "LennyDuan",
   "license": "ISC",
   "dependencies": {
-    "eslint": "^4.18.2"
+    "install": "^0.10.4"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -28,6 +29,11 @@
     "babel-preset-latest": "^6.24.1",
     "babel-register": "^6.24.1",
     "chai": "^4.1.2",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "mocha": "^5.0.4"
   }
 }
