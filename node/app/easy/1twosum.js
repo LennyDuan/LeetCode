@@ -25,6 +25,29 @@ const twoSum = function (nums, target) {
   return result;
 };
 
+// Use Hash/Map instead of use Array will have much better time performance
+const twoSumHash = function (nums, target) {
+  const map = {};
+  let result = [];
+  let find = false;
+  nums.forEach((ele, index) => {
+    if (find) return;
+    const remain = target - ele;
+    map[ele] = remain;
+    console.log(`The map is: ${JSON.stringify(map)}`);
+    if (map[remain]) {
+      const start = nums.indexOf(remain);
+      if (index !== start) {
+        result = [start, index];
+        console.log(`Found and result: ${result}`);
+        find = true;
+      }
+    }
+  });
+  return result;
+};
+
 module.exports = {
   twoSum,
+  twoSumHash,
 };
