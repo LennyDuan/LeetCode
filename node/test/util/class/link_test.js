@@ -22,7 +22,6 @@ describe('util', () => {
           node.next = nodeNext;
           assert.deepEqual(2, node.next.value);
       });
-
     });
   });
 });
