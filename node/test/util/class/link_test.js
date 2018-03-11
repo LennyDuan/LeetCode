@@ -14,6 +14,15 @@ describe('util', () => {
           assert.deepEqual(2, node.value);
       });
 
+      it('Should be able to assgin a node to next', () => {
+          const node = new ListNode(1);
+          assert.deepEqual(1, node.value);
+          const nodeNext = new ListNode(2)
+          assert.deepEqual(2, nodeNext.value);
+          node.next = nodeNext;
+          assert.deepEqual(2, node.next.value);
+      });
+
     });
   });
 });
