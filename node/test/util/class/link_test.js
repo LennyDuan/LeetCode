@@ -13,6 +13,7 @@ describe('util', () => {
           node.value = 2;
           assert.deepEqual(2, node.value);
       });
+
     });
   });
 });
