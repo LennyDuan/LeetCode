@@ -1,4 +1,3 @@
-import { assert } from 'chai';
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -7,4 +6,8 @@ import { assert } from 'chai';
 var twoSum = function(nums, target) {
 
   return 0;
+};
+
+module.exports = {
+  twoSum,
 };
