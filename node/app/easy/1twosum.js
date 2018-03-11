@@ -4,19 +4,25 @@
  * @return {number[]}
  */
 const twoSum = function (nums, target) {
-  const result = [];
   const diff = [];
+  let result = [];
   nums.forEach((ele, index) => {
     console.log(`The ${index} element: ${ele}`);
     if (diff.includes(ele)) {
-      const end = diff[index];
-      return [ele, end];
+      const start = diff.indexOf(ele);
+      console.log(`!!!!Found start: ${start}`);
+      result = [start, index];
+      console.log(`Found and return: ${result}`);
+      return result;
     }
     const diffNum = target - ele;
     diff.push(diffNum);
+    console.log(`The diff array: ${diff}`);
+    return null;
   });
+  console.log(`The 2 array: \n${nums} \n${diff}`);
 
-  return null;
+  return result;
 };
 
 module.exports = {
