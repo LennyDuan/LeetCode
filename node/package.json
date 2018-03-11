@@ -4,7 +4,10 @@
   "description": "LeetCode practice via node",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint app --fix",
+    "test": "mocha ./test --require babel-register --require babel-polyfill --recursive",
+    "test-single": "mocha $1 --require babel-register --require babel-polyfill"
   },
   "keywords": [
     "leetcode"
@@ -15,5 +18,8 @@
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "mocha": "^5.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2"
   }
 }
