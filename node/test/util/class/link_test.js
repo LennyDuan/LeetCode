@@ -22,6 +22,26 @@ describe('util', () => {
           node.next = nodeNext;
           assert.deepEqual(2, node.next.value);
       });
+
+      it('Should return expected toString', () => {
+          const node = new ListNode(1);
+          assert.deepEqual(1, node.toString());
+      });
+
+      it('Should return expected list toString', () => {
+        const nodeOne2 = new ListNode(2);
+        const nodeOne4 = new ListNode(4);
+        const nodeOne3 = new ListNode(3);
+        const nodeOne5 = new ListNode(5);
+
+        nodeOne2.next = nodeOne4;
+        nodeOne4.next = nodeOne3;
+        nodeOne3.next = nodeOne5;
+        debug(nodeOne2.toString());
+        debug(nodeOne3.toString());
+        assert.deepEqual('2 -> 4 -> 3 -> 5', nodeOne2.toString());
+      });
+
     });
   });
 });

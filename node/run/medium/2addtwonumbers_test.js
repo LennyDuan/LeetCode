@@ -24,8 +24,6 @@ describe('medium', () => {
       });
 
       it('should complete and return 7 -> 0 -> 8', () => {
-    
-
       });
     });
   });

@@ -15,8 +15,6 @@ import { info } from '../../src/util/logger';
 const addTwoNumbers = function (l1, l2) {
   info(`L1: ${l1.value}`);
   info(`L2: ${l2.value}`);
-
-
 };
 
 module.exports = {
