@@ -4,8 +4,18 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-
-  return 0;
+  var result = [];
+  var diff = [];
+  nums.forEach((ele, index) => {
+    console.log(`The ${index} element: ${ele}`);
+    if(diff.includes(ele)) {
+      const end = diff[index];
+      return [ele, end];
+    }
+    const diffNum = target - ele;
+    diff.push(diffNum);
+  })
+  return null;
 };
 
 module.exports = {
