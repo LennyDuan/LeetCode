@@ -1,4 +1,4 @@
-import { ListNode } from '../../src/util/class/link';
+import { ListNode } from '../../src/util/class/linkedlist';
 import { info } from '../../src/util/logger';
 /**
  * Definition for singly-linked list.

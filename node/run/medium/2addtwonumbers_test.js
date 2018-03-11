@@ -1,6 +1,6 @@
 import { addTwoNumbers, twoSumHash } from '../../app/medium/2addTwoNumbers';
 import { assert } from 'chai';
-import { ListNode } from '../../src/util/class/link';
+import { ListNode } from '../../src/util/class/linkedlist';
 
 describe('medium', () => {
 

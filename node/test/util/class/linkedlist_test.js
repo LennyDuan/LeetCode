@@ -1,11 +1,11 @@
-import { ListNode } from '../../../src/util/class/link.js';
+import { ListNode } from '../../../src/util/class/linkedlist';
 import { assert } from 'chai';
-import { log, info, debug } from '../../../src/util/logger.js'
+import { log, info, debug } from '../../../src/util/logger'
 
 info(ListNode);
 describe('util', () => {
   describe('class', () => {
-    describe('link', () => {
+    describe('linkedlist', () => {
 
       it('Should create a ListNode object', () => {
           const node = new ListNode(1);
