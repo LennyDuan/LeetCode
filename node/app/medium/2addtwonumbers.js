@@ -37,11 +37,12 @@ const addTwoNumbers = function (l1, l2) {
       biggerZero = 0;
     }
 
-    list.next = new ListNode(val);
-    last = current;
+    l1current = l1current.next;
+    l2current = l2current.next;
+    current.next = new ListNode(val);
     current = current.next;
   }
-  last.next = biggerZero ? new ListNode(1) : null;
+  current.next = biggerZero ? new ListNode(1) : null;
   return list;
 };
 
