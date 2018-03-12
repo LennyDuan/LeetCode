@@ -1,4 +1,4 @@
-import { log, info, debug } from '../../src/util/logger.js'
+import { log, info, debug } from '../../src/util/logger';
 
 describe('util', () => {
   describe('logger', () => {
