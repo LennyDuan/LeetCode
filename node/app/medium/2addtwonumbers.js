@@ -28,7 +28,7 @@ const addTwoNumbers = function (l1, l2) {
   let current = list;
 
  // 3 ListNode requir 3 header
-  while (l1current) {
+  while (l1current || l2current) {
     const l1V = l1current ? l1current.value : 0;
     const l2V = l2current ? l2current.value : 0;
 
