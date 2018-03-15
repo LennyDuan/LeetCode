@@ -44,6 +44,19 @@ describe('medium', () => {
         const result = addTwoNumbers(nodeOne2, nodeTwo5);
         assert.deepEqual(expert, result.toString());
       });
+
+      it('should complete and return 1 -> 8', () => {
+
+        const nodeOne1 = new ListNode(1);
+        const nodeOne8 = new ListNode(8);
+        nodeOne1.next = nodeOne8;
+
+        const nodeTwo0 = new ListNode(0);
+
+        const expert = '1 -> 8';
+        const result = addTwoNumbers(nodeOne1, nodeTwo0);
+        assert.deepEqual(expert, result.toString());
+      });
     });
   });
 });
