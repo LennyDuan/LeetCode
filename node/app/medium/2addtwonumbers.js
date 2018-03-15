@@ -52,6 +52,7 @@ const addTwoNumbers = function (l1, l2) {
 };
 
 const convertNode = (list) => {
+  info(list);
   let arr = [];
   while(list) {
     arr.push(list.value);
