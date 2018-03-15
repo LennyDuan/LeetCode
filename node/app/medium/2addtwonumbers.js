@@ -51,6 +51,16 @@ const addTwoNumbers = function (l1, l2) {
   return list;
 };
 
+const convertNode = (list) => {
+  let arr = [];
+  while(list) {
+    arr.push(list.value);
+    list = list.next;
+  }
+  return arr;
+};
+
 module.exports = {
   addTwoNumbers,
+  convertNode,
 };

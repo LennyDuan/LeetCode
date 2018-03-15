@@ -1,4 +1,4 @@
-import { addTwoNumbers } from '../../app/medium/2addTwoNumbers';
+import { addTwoNumbers, convertNode } from '../../app/medium/2addTwoNumbers';
 import { assert } from 'chai';
 import { ListNode } from '../../src/util/class/linkedlist';
 
@@ -56,6 +56,20 @@ describe('medium', () => {
         const expert = '1 -> 8';
         const result = addTwoNumbers(nodeOne1, nodeTwo0);
         assert.deepEqual(expert, result.toString());
+      });
+    });
+
+    describe('convertNode', () => {
+      it('output [7 , 0, 8]', () => {
+        const nodeOne7 = new ListNode(7);
+        const nodeOne0 = new ListNode(0);
+        const nodeOne8 = new ListNode(8);
+        nodeOne7.next = nodeOne0;
+        nodeOne0.next = nodeOne8;
+
+        const expect = [7, 0, 8];
+        const actual = convertNode(nodeOne7);
+        assert.deepEqual(expect, actual);
       });
     });
   });
