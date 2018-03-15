@@ -29,8 +29,10 @@ const addTwoNumbers = function (l1, l2) {
 
  // 3 ListNode requir 3 header
   while (l1current) {
-  
-    let val = l1current.value + l2current.value + biggerZero;
+    const l1V = l1current ? l1current.value : 0;
+    const l2V = l2current ? l2current.value : 0;
+
+    let val = l1V + l2V + biggerZero;
 
     if (val >= 10) {
       biggerZero = 1;
@@ -39,8 +41,8 @@ const addTwoNumbers = function (l1, l2) {
       biggerZero = 0;
     }
 
-    l1current = l1current.next;
-    l2current = l2current.next;
+    l1current = l1current ? l1current.next : null;
+    l2current = l2current ? l2current.next : null;
     const nextNode = new ListNode(val);
     current.next = nextNode;
     current = current.next;
