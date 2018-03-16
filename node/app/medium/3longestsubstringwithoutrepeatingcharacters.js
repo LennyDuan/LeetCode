@@ -15,9 +15,31 @@ const lengthOfLongestSubstring = function (s) {
   let queue = [];
   const arr = Array.from(s);
   for (let i in arr) {
-    info(arr[i]);
+    const ch = arr[i];
+    info(`Next: ${ch}`);
+    queue.push(ch);
+    info(`Queue: ${queue}`);
+    map[ch] = map[ch]
+    ? map[ch]++
+    : 1;
+    // if duplicated -> shift queue
+    if(map[ch] > 1) {
+      info(`Find duplicate: ${first}`);
+      info(`Find map: ${ch} - ${map[ch]}`);
+
+      let first = queue.shift();
+      while(first != ch) {
+        first = queue.shift();
+        info(`Shift queue element: ${first}`);
+      }
+      map[ch]-- ;
+    } else {
+      map[ch]++ ;
+    }
+    max = max > queue.length ? max : queue.length;
+    info(`Max length queue element: ${max}`);
   }
-  return s;
+  return queue.length;
 };
 
 module.exports = {
