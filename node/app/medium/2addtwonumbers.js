@@ -19,7 +19,7 @@ const addTwoNumbers = function (l1, l2) {
   let biggerZero = 0;
   if (firstValue >= 10) {
     firstValue -= 10;
-    biggerZero++;
+    biggerZero += 1;
   }
   const list = new ListNode(firstValue);
 
@@ -27,7 +27,7 @@ const addTwoNumbers = function (l1, l2) {
   let l2current = l2.next;
   let current = list;
 
- // 3 ListNode requir 3 header
+  // 3 ListNode requir 3 header
   while (l1current || l2current) {
     const l1V = l1current ? l1current.value : 0;
     const l2V = l2current ? l2current.value : 0;
@@ -53,10 +53,11 @@ const addTwoNumbers = function (l1, l2) {
 
 const convertNode = (list) => {
   info(list);
-  let arr = [];
-  while(list) {
-    arr.push(list.value);
-    list = list.next;
+  let listNode = list;
+  const arr = [];
+  while (listNode) {
+    arr.push(listNode.value);
+    listNode = listNode.next;
   }
   return arr;
 };

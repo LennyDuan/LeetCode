@@ -5,8 +5,13 @@ import { info } from '../../src/util/logger';
  * @return {number}
  */
 
- // Inital thought is using a Queue + hash. Find hash > 1; shift queue util the same.
- // A max to record the max
-var lengthOfLongestSubstring = function(s) {
+// Inital thought is using a Queue + hash. Find hash > 1; shift queue util the same.
+// A max to record the max
+const lengthOfLongestSubstring = function (s) {
+  info(s);
+  return s;
+};
 
+module.exports = {
+  lengthOfLongestSubstring,
 };
