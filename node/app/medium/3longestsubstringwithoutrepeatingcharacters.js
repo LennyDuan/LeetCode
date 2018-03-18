@@ -40,12 +40,11 @@ const lengthOfLongestSubstring = function (s) {
         map[first] -= 1;
         info(`Shift queue element: ${first}`);
       }
-      map[ch] -= 1;
     }
     max = max > queue.length ? max : queue.length;
     info(`Max length queue element: ${max}`);
   }
-  return queue.length;
+  return max;
 };
 
 module.exports = {

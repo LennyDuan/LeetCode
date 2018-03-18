@@ -11,13 +11,13 @@ describe('medium', () => {
         assert.deepEqual(expect, actual);
       });
 
-      // it('should complete return b = 1', async () => {
-      //   const expect = 1;
-      //   const given = 'bbbbb';
-      //   const actual = lengthOfLongestSubstring(given);
-      //   assert.deepEqual(expect, actual);
-      // });
-      //
+      it('should complete return b = 1', async () => {
+        const expect = 1;
+        const given = 'bbbbb';
+        const actual = lengthOfLongestSubstring(given);
+        assert.deepEqual(expect, actual);
+      });
+
       // it('should complete return wke = 3', async () => {
       //   const expect = 3
       //   const given = 'pwwkew';
