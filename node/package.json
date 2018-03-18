@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "babel app --out-dir build --source-maps --copy-files",
-    "run": "mocha ./run --require babel-register --require babel-polyfill --recursive",
-    "test": "mocha ./test --require babel-register --require babel-polyfill --recursive",
+    "run": "eslint app --fix; mocha ./run --require babel-register --require babel-polyfill --recursive",
+    "test": "eslint src --fix; mocha ./test --require babel-register --require babel-polyfill --recursive",
     "lint": "eslint app --fix; eslint src --fix",
     "lint-test": "eslint src --fix; eslint test --fix",
     "eslint-install": "(export PKG=eslint-config-airbnb; npm info \"$PKG@latest\" peerDependencies --json | command sed 's/[\\{\\},]//g ; s/: /@/g' | xargs npm install --save-dev \"$PKG@latest\")",
-    "test-all": "mocha ./test --require babel-register --require babel-polyfill --recursive; mocha ./run --require babel-register --require babel-polyfill --recursive",
+    "test-all": "npm run lint; mocha ./test --require babel-register --require babel-polyfill --recursive; mocha ./run --require babel-register --require babel-polyfill --recursive",
     "test-single": "mocha $1 --require babel-register --require babel-polyfill"
   },
   "keywords": [
