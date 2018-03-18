@@ -30,7 +30,7 @@ const lengthOfLongestSubstring = function (s) {
 
     // if duplicated -> shift queue
     if (map[ch] > 1) {
-      info(`Find duplicate map: ${ch} - ${map[ch]}`);
+      debug(`Find duplicate map: ${ch} - ${map[ch]}`);
 
       let first = queue.shift();
       map[first] -= 1;
