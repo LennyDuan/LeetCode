@@ -42,7 +42,7 @@ const lengthOfLongestSubstring = function (s) {
     max = max > queue.length ? max : queue.length;
     info(`Max length queue element: ${max}`);
   }
-  return queue.length;
+  return max;
 };
 
 module.exports = {
