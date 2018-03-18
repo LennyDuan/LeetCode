@@ -9,8 +9,8 @@ const removeDuplicates = function (nums) {
   let arr = nums;
   let length = arr.length;
   let duplicated = 0;
-  for (let i = 0; i < length; i += 1) {
-    const ele = arr[i];
+  for (let i = 0; i < arr.length; i += 1) {
+    const ele = arr[i] + 1;
     debug(`Next element: ${ele}`);
 
     if (map[ele] === 1 || map[ele] === 2) {

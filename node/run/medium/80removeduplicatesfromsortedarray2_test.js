@@ -24,6 +24,13 @@ describe('medium', () => {
         const actual = removeDuplicates(given);
         assert.deepEqual(expect, actual);
       });
+
+      it('should complete return length = 2', async () => {
+        const expect = [0, 0];
+        const given = [0, 0, 0, 0, 0];
+        const actual = removeDuplicates(given);
+        assert.deepEqual(expect, actual);
+      });
     });
   });
 });
