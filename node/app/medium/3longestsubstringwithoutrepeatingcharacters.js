@@ -9,32 +9,35 @@ import { info, debug } from '../../src/util/logger';
 // A max to record the max
 const lengthOfLongestSubstring = function (s) {
   debug(s);
-  if (s.length == 1) return 1;
+  if (s.length === 1) return 1;
   let max = 0;
-  let map = {};
-  let queue = [];
+  const map = {};
+  const queue = [];
   const arr = Array.from(s);
-  for (let i in arr) {
+  for (let i = 0; i < s.length; i += 1) {
     const ch = arr[i];
     info(`Next: ${ch}`);
     queue.push(ch);
     info(`Queue: ${queue}`);
-    map[ch] = map[ch]
-    ? map[ch]++
-    : 1;
+    if (map[ch]) {
+      info(`Found in map: ${ch} - ${map[ch]}`);
+      map[ch] += 1;
+    } else {
+      info(`Not found in map: ${ch} - ${map[ch]}`);
+      map[ch] = 1;
+    }
+    info(`Map: ${ch} - ${map[ch]}`);
+
     // if duplicated -> shift queue
-    if(map[ch] > 1) {
-      info(`Find duplicate: ${first}`);
-      info(`Find map: ${ch} - ${map[ch]}`);
+    if (map[ch] > 1) {
+      info(`Find duplicate map: ${ch} - ${map[ch]}`);
 
       let first = queue.shift();
-      while(first != ch) {
+      while (first !== ch) {
         first = queue.shift();
         info(`Shift queue element: ${first}`);
       }
-      map[ch]-- ;
-    } else {
-      map[ch]++ ;
+      map[ch] -= 1;
     }
     max = max > queue.length ? max : queue.length;
     info(`Max length queue element: ${max}`);
