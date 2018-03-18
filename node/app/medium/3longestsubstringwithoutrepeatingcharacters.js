@@ -33,8 +33,11 @@ const lengthOfLongestSubstring = function (s) {
       info(`Find duplicate map: ${ch} - ${map[ch]}`);
 
       let first = queue.shift();
+      map[first] -= 1;
+      info(`Shift queue element: ${first}`);
       while (first !== ch) {
         first = queue.shift();
+        map[first] -= 1;
         info(`Shift queue element: ${first}`);
       }
       map[ch] -= 1;
@@ -42,7 +45,7 @@ const lengthOfLongestSubstring = function (s) {
     max = max > queue.length ? max : queue.length;
     info(`Max length queue element: ${max}`);
   }
-  return max;
+  return queue.length;
 };
 
 module.exports = {
