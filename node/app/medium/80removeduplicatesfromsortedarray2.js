@@ -6,6 +6,8 @@ import { info, debug } from '../../src/util/logger';
  */
 const removeDuplicates = function (nums) {
   const map = {}
+  let length = nums.length;
+  let duplicated = 0;
   for (let i = 0; i < nums.length; i += 1) {
     const ele = nums[i];
     debug(`Next element: ${ele}`);
@@ -18,12 +20,13 @@ const removeDuplicates = function (nums) {
 
     if (map[ele] > 2) {
       info(`nums of ${ele} is : ${map[ele]}`)
+      duplicated =+ 1;
       nums.splice(i, 1);
       map[ele] -= 1;
     }
   }
 
-  return nums;
+  return length - duplicated;
 };
 
 module.exports = {
