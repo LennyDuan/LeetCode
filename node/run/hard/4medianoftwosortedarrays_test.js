@@ -12,13 +12,13 @@ describe('medium', () => {
         assert.deepEqual(actual, expect);
       });
 
-      // it('should complete return median = 2.5', async () => {
-      //   const expect = 2.5;
-      //   const nums1 = [1, 2];
-      //   const nums2 = [3, 4];
-      //   const actual = findMedianSortedArrays(nums1, nums2);
-      //   assert.deepEqual(actual, expect);
-      // });
+      it('should complete return median = 2.5', async () => {
+        const expect = 2.5;
+        const nums1 = [1, 2];
+        const nums2 = [3, 4];
+        const actual = findMedianSortedArrays(nums1, nums2);
+        assert.deepEqual(actual, expect);
+      });
     });
   });
 });
