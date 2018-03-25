@@ -47,24 +47,12 @@ const findMedianSortedArrays = function (nums1, nums2) {
         }
       }
     }
-    mediano = arr[i];
   }
-  // } else {
-  //   for(; i <= mid; i += 1) {
-  //     if (nums1[i1] <= nums2[i2]) {
-  //       arr.push(nums1[i1]);
-  //       info(`Array one: [${nums1[i1]}] is smaller than [${nums2[i2]}]`)
-  //       info(`push [${nums1[i1]}] to array`);
-  //       if (i1 < nums1.length - 1) i1 += 1;
-  //     } else {
-  //       arr.push(nums2[i2]);
-  //       info(`Array two: [${nums2[i2]}] is smaller than [${nums1[i1]}]`)
-  //       info(`push [${nums2[i2]}] to array`);
-  //       if (i2 < nums2.length - 1) i2 += 1;
-  //     }
-  //   }
-  //   mediano = (arr[i] + arr[i - 1]) / 2;
-  // }
+
+  mediano = isOdd
+    ? mediano = arr[i]
+    :(arr[i] + arr[i - 1]) / 2;
+
   return mediano;
 };
 
