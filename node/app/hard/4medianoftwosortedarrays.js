@@ -19,6 +19,16 @@ const findMedianSortedArrays = function (nums1, nums2) {
   let i = 0;
 
   for(; i <= mid; i += 1) {
+    if(!nums1[i1]) {
+      const remain2 = nums2.slice(i2, mid);
+      arr = arr.concat(remain2);
+      break;
+    }
+    if(!nums2[i2]) {
+      const remain1 = nums1.slice(i1, mid);
+      arr = arr.concat(remain1);
+      break;
+    }
 
     if (nums1[i1] <= nums2[i2]) {
       arr.push(nums1[i1]);

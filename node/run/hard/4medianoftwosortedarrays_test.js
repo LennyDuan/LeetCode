@@ -19,6 +19,23 @@ describe('medium', () => {
         const actual = findMedianSortedArrays(nums1, nums2);
         assert.deepEqual(actual, expect);
       });
+
+      it('should complete return median = 2.0 for undefined', async () => {
+        const expect = 2.0;
+        const nums1 = [2];
+        const nums2 = [];
+        const actual = findMedianSortedArrays(nums1, nums2);
+        assert.deepEqual(actual, expect);
+      });
+
+
+      it('should complete return median = 2.5 for undefined', async () => {
+        const expect = 2.5;
+        const nums1 = [];
+        const nums2 = [1, 2, 3, 4];
+        const actual = findMedianSortedArrays(nums1, nums2);
+        assert.deepEqual(actual, expect);
+      });
     });
   });
 });
