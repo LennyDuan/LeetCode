@@ -39,7 +39,6 @@ const findMedianSortedArrays = function (nums1, nums2) {
         const remain2 = nums2.slice(i2, mid);
         info(`Remain array two: [${remain2}]`);
         arr = arr.concat(remain2);
-        info(`New arr: [${arr}]`);
         break;
       }
     } else {
@@ -51,16 +50,16 @@ const findMedianSortedArrays = function (nums1, nums2) {
         const remain1 = nums1.slice(i1, mid);
         info(`Remain array one: [${remain1}]`);
         arr = arr.concat(remain1);
-        info(`New arr: [${arr}]`);
         break;
       }
     }
   }
 
+  info(`New arr: [${arr}]`);
 
   mediano = isOdd
-    ? mediano = arr[i]
-    : (arr[i] + arr[i + 1]) / 2;
+    ? mediano = arr[mid - 1]
+    : (arr[mid - 1] + arr[mid - 2]) / 2;
 
   return mediano;
 };
