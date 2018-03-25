@@ -19,12 +19,12 @@ const findMedianSortedArrays = function (nums1, nums2) {
   let i = 0;
 
   for(; i <= mid; i += 1) {
-    if(!nums1[i1]) {
+    if(nums1[i1] == undefined) {
       const remain2 = nums2.slice(i2, mid);
       arr = arr.concat(remain2);
       break;
     }
-    if(!nums2[i2]) {
+    if(nums2[i2] == undefined) {
       const remain1 = nums1.slice(i1, mid);
       arr = arr.concat(remain1);
       break;
@@ -35,7 +35,7 @@ const findMedianSortedArrays = function (nums1, nums2) {
       info(`Array one: [${nums1[i1]}] is smaller than [${nums2[i2]}]`)
       info(`push [${nums1[i1]}] to array`);
       i1 += 1;
-      if(!nums1[i1]) {
+      if(nums1[i1] == undefined) {
         const remain2 = nums2.slice(i2, mid);
         info(`Remain array two: [${remain2}]`);
         arr = arr.concat(remain2);
@@ -46,7 +46,7 @@ const findMedianSortedArrays = function (nums1, nums2) {
       info(`Array two: [${nums2[i2]}] is smaller than [${nums1[i1]}]`)
       info(`push [${nums2[i2]}] to array`);
       i2 += 1;
-      if(!nums2[i2]) {
+      if(nums2[i2] == undefined) {
         const remain1 = nums1.slice(i1, mid);
         info(`Remain array one: [${remain1}]`);
         arr = arr.concat(remain1);
