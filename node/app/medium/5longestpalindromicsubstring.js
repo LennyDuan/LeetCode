@@ -2,6 +2,8 @@ import { info, debug } from '../../src/util/logger';
 
 // Fucking no idea now...
 // Well this is not True, I have the fucking idea.
+
+// Return the logest palindrom string
 const strP = (s, i, j) => {
   let pre = i;
   let next = j;
