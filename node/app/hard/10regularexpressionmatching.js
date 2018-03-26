@@ -5,47 +5,106 @@ import { info, debug } from '../../src/util/logger';
  * @param {string} p
  * @return {boolean}
  */
+// const isMatchV1 = function (s, p) {
+//   info(`String is [${s}]\nRegExp is: [${p}]`);
+//   if (p === '.*') return true;
+//   if (p.includes('.*')) {
+//     const arr = p.split('.*');
+//     debug(`Check includes: [${arr}]`);
+//     return arr.every(ele => s.includes(ele));
+//   }
+//   let i = 0;
+//   let j = 0;
+//   for (; i < s.length;) {
+//     debug(`Index [${i}] - [${j}]`);
+//     const str = s.charAt(i);
+//     const reg = p.charAt(j);
+//     debug(`str: [${str}]`);
+//     debug(`reg: [${reg}]`);
+//
+//     if (reg === '.') {
+//       debug(`. Match [${reg}]`);
+//       i += 1;
+//       j += 1;
+//     } else if (reg === str) {
+//       debug(`[${reg}] Match [${str}]`);
+//       i += 1;
+//       j += 1;
+//     } else if (p.charAt(j + 1) === '*') {
+//       debug(`[${str}] Match 'X*' - 0`);
+//       j += 2;
+//     } else if (reg === '*' && j > 0) {
+//       // 'a*' Match 'aaaaa'
+//       debug('XXXX Match \'X*\' - Mutil');
+//
+//       const matchP = p.charAt(j - 1);
+//       debug(`matchP: [${reg}]`);
+//
+//       while (p.charAt(j) === '*' && i < s.length) {
+//         const st = s.charAt(i);
+//         if (st === matchP) {
+//           i += 1;
+//         } else {
+//           j += 1;
+//         }
+//       }
+//     } else {
+//       return false;
+//     }
+//   }
+//
+//   if (p.length > s.length) {
+//     const remainP = p.slice(j, p.length);
+//     const relen = remainP.length;
+//     debug(`remainP: [${remainP}]`);
+//     debug(`relen: [${relen}]`);
+//     if (relen % 2 !== 0) return false;
+//     for (let ri = 1; ri < relen; ri += 2) {
+//       if (remainP.charAt(ri) !== '*') return false;
+//     }
+//   }
+//   return true;
+// };
+
 const isMatch = function (s, p) {
+  let str = s;
+  let reg = p;
   info(`String is [${s}]\nRegExp is: [${p}]`);
-  if (p === '.*') return true;
-  if (p.includes('.*')) {
-    const arr = p.split('.*');
+  if (reg === '.*') return true;
+  if (reg.includes('.*')) {
+    const arr = reg.split('.*');
     debug(`Check includes: [${arr}]`);
-    return arr.every(ele => s.includes(ele));
+    return arr.every(ele => str.includes(ele));
   }
-  let i = 0;
-  let j = 0;
-  for (; i < s.length;) {
-    debug(`Index [${i}] - [${j}]`)
-    const str = s.charAt(i);
-    const reg = p.charAt(j);
-    debug(`str: [${str}]`);
-    debug(`reg: [${reg}]`);
 
-    if (reg === '.') {
-      debug(`. Match [${reg}]`)
-      i += 1;
-      j += 1;
-    } else if (reg === str) {
-      debug(`[${reg}] Match [${str}]`)
-      i += 1;
-      j += 1;
-    } else if (p.charAt(j + 1) === '*') {
-      debug(`[${str}] Match 'X*' - 0`)
-      j += 2;
-    } else if (reg === '*' && j > 0) {
+  let strS = '';
+  while (str.length > 0) {
+    const strF = str.charAt(0);
+    const regF = reg.charAt(0);
+    debug(`String first: [${strF}]`);
+    debug(`Reg first: [${regF}]`);
+
+    if (regF === '.') {
+      info(`. Match [${regF}]`);
+      str = str.slice(1);
+      reg = reg.slice(1);
+    } else if (regF === strF) {
+      info(`[${regF}] Match [${strF}]`);
+      str = str.slice(1);
+      reg = reg.slice(1);
+      strS = str.slice(0, 1);
+    } else if (reg.charAt(1) === '*') {
+      info(`[${strF}] Match 'X*' - 0`);
+      reg = reg.slice(2);
+    } else if (regF === '*') {
       // 'a*' Match 'aaaaa'
-      debug(`XXXX Match 'X*' - Mutil`)
-
-      const matchP = p.charAt(j - 1);
-      debug(`matchP: [${reg}]`);
-
-      while (p.charAt(j) === '*' && i < s.length) {
-        const st = s.charAt(i);
-        if (st === matchP) {
-          i += 1;
+      info('XXXX Match \'X*\' - Mutil');
+      while (reg.charAt(0) === '*') {
+        const st = str.charAt(0);
+        if (st === strS) {
+          str = str.slice(1);
         } else {
-          j += 1;
+          reg = reg.slice(1);
         }
       }
     } else {
@@ -53,18 +112,18 @@ const isMatch = function (s, p) {
     }
   }
 
-  if (p.length > s.length) {
-    const remainP = p.slice(j, p.length);
-    const relen = remainP.length;
-    debug(`remainP: [${remainP}]`);
+  if (reg.length > 0) {
+    const relen = reg.length;
+    debug(`remain regExp: [${reg}]`);
     debug(`relen: [${relen}]`);
     if (relen % 2 !== 0) return false;
     for (let ri = 1; ri < relen; ri += 2) {
-      if (remainP.charAt(ri) !== '*') return false;
+      if (relen.charAt(ri) !== '*') return false;
     }
   }
   return true;
 };
+
 
 module.exports = {
   isMatch,
