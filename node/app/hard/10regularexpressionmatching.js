@@ -16,6 +16,7 @@ const isMatch = function (s, p) {
   let i = 0;
   let j = 0;
   for (; i < s.length;) {
+    debug(`Index [${i}] - [${j}]`)
     const str = s.charAt(i);
     const reg = p.charAt(j);
     debug(`str: [${str}]`);
@@ -28,7 +29,6 @@ const isMatch = function (s, p) {
       i += 1;
       j += 1;
     } else if (p.charAt(j + 1) === '*') {
-      i += 1;
       j += 2;
     } else if (reg === '*' && j > 0) {
       const matchP = p.charAt(j - 1);
