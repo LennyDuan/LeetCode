@@ -8,7 +8,7 @@ const strP = (s, i, j) => {
   let str = '';
   while (pre >= 0 && next <= s.length - 1
     && s.charAt(pre) === s.charAt(next)) {
-    str = s.slice(i, j + 1);
+    str = s.slice(pre, next + 1);
     pre -= 1;
     next += 1;
   }
@@ -30,8 +30,8 @@ const longestPalindrome = function (s) {
     debug(`Odd palindrom: [${odd}]`);
     const even = strP(s, i, i + 1);
     debug(`Even palindrom: [${even}]`);
-    str = str.length > odd.length ? str : odd;
-    str = str.length > even.length ? str : even;
+    str = str.length >= odd.length ? str : odd;
+    str = str.length >= even.length ? str : even;
   }
   return str;
 };
