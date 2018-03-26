@@ -24,7 +24,6 @@ const isMatch = function (s, p) {
     if (reg === '.') {
       i += 1;
       j += 1;
-
     } else if (reg === str) {
       i += 1;
       j += 1;
@@ -35,7 +34,7 @@ const isMatch = function (s, p) {
       const matchP = p.charAt(j - 1);
       debug(`matchP: [${reg}]`);
 
-      while (p.charAt(j) == '*' && i < s.length) {
+      while (p.charAt(j) === '*' && i < s.length) {
         const st = s.charAt(i);
         if (st === matchP) {
           i += 1;
@@ -43,13 +42,21 @@ const isMatch = function (s, p) {
           j += 1;
         }
       }
-
     } else {
       return false;
     }
   }
 
-
+  if (p.length > s.length) {
+    const remainP = p.slice(j, p.length);
+    const relen = remainP.length;
+    debug(`remainP: [${remainP}]`);
+    debug(`relen: [${relen}]`);
+    if (relen % 2 !== 0) return false;
+    for (let ri = 1; ri < relen; ri += 2) {
+      if (remainP.charAt(ri) !== '*') return false;
+    }
+  }
   return true;
 };
 
