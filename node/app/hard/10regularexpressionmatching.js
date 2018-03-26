@@ -79,6 +79,10 @@ const isMatch = function (s, p) {
 
   let strS = '';
   while (str.length > 0) {
+    debug(`\n------------------\n`);
+
+    debug(`String : [${str}]`);
+    debug(`Reg : [${reg}]`);
     const strF = str.charAt(0);
     const regF = reg.charAt(0);
     debug(`String first: [${strF}]`);
@@ -86,15 +90,25 @@ const isMatch = function (s, p) {
 
     if (regF === '.') {
       info(`. Match [${regF}]`);
+      info(`String remove: [${str.slice(0, 1)}]`);
+      info(`RegExp remove: [${reg.slice(0, 1)}]`)
       str = str.slice(1);
       reg = reg.slice(1);
     } else if (regF === strF) {
       info(`[${regF}] Match [${strF}]`);
+      info(`String remove: [${str.slice(0, 1)}]`);
+      info(`RegExp remove: [${reg.slice(0, 1)}]`)
+      if(reg.charAt(1) === '*') {
+        strS = str.slice(0, 1);
+        info(`Prev X* is: [${strS}*]`)
+      }
+
+
       str = str.slice(1);
       reg = reg.slice(1);
-      strS = str.slice(0, 1);
     } else if (reg.charAt(1) === '*') {
       info(`[${strF}] Match 'X*' - 0`);
+      info(`RegExp remove: [${reg.slice(0, 2)}]`)
       reg = reg.slice(2);
     } else if (regF === '*') {
       // 'a*' Match 'aaaaa'
@@ -102,11 +116,14 @@ const isMatch = function (s, p) {
       while (reg.charAt(0) === '*') {
         const st = str.charAt(0);
         if (st === strS) {
+          info(`String remove: [${str.slice(0, 1)}]`);
           str = str.slice(1);
         } else {
+          info(`RegExp remove: [${reg.slice(0, 1)}]`);
           reg = reg.slice(1);
         }
       }
+      strS = '';
     } else {
       return false;
     }
