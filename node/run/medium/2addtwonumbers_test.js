@@ -3,7 +3,6 @@ import { assert } from 'chai';
 import { ListNode } from '../../src/util/class/linkedlist';
 
 describe('medium', () => {
-
   describe('addTwoNumbers', () => {
     describe('addTwoNumbers', () => {
       it('init test', () => {
@@ -24,7 +23,6 @@ describe('medium', () => {
       });
 
       it('should complete and return 7 -> 0 -> 8', () => {
-
         const nodeOne2 = new ListNode(2);
         const nodeOne4 = new ListNode(4);
         const nodeOne3 = new ListNode(3);
@@ -46,7 +44,6 @@ describe('medium', () => {
       });
 
       it('should complete and return 1 -> 8', () => {
-
         const nodeOne1 = new ListNode(1);
         const nodeOne8 = new ListNode(8);
         nodeOne1.next = nodeOne8;
@@ -59,7 +56,6 @@ describe('medium', () => {
       });
 
       it('should complete and return 1 -> 7', () => {
-
         const nodeOne1 = new ListNode(1);
         const nodeOne7 = new ListNode(7);
         nodeOne1.next = nodeOne7;

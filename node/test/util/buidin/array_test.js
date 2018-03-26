@@ -25,7 +25,6 @@ describe('util', () => {
         const top = stack.pop();
         assert.deepEqual([1, 2, 3, 4], stack);
         assert.deepEqual(5, top);
-
       });
     });
 

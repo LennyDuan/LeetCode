@@ -36,7 +36,7 @@ describe('easy', () => {
         const expect = [0, 3];
         const num = 0;
         const result = twoSumHash(arr, num);
-        //assert.deepEqual(expect, result);
+        // assert.deepEqual(expect, result);
       });
     });
   });
