@@ -1,5 +1,5 @@
-import { addTwoNumbers, convertNode } from '../../app/medium/2addTwoNumbers';
 import { assert } from 'chai';
+import { addTwoNumbers, convertNode } from '../../app/medium/2addtwonumbers';
 import { ListNode } from '../../src/util/class/linkedlist';
 
 describe('medium', () => {

@@ -32,10 +32,10 @@ describe('easy', () => {
 
       // TODO think about solve it later
       it('should complete return [0, 3]', async () => {
-        const arr = [0, 1, 2, 0];
+        // const arr = [0, 1, 2, 0];
         // const expect = [0, 3];
-        const num = 0;
-        const result = twoSumHash(arr, num);
+        // const num = 0;
+        // const result = twoSumHash(arr, num);
         // assert.deepEqual(expect, result);
       });
     });

@@ -1,5 +1,5 @@
-import { lengthOfLongestSubstring } from '../../app/medium/3longestsubstringwithoutrepeatingcharacters';
 import { assert } from 'chai';
+import { lengthOfLongestSubstring } from '../../app/medium/3longestsubstringwithoutrepeatingcharacters';
 
 describe('medium', () => {
   describe('longestsubstringwithoutrepeatingcharacters', () => {

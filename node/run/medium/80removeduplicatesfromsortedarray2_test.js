@@ -1,5 +1,5 @@
-import { removeDuplicates } from '../../app/medium/80removeduplicatesfromsortedarray2';
 import { assert } from 'chai';
+import { removeDuplicates } from '../../app/medium/80removeduplicatesfromsortedarray2';
 
 describe('medium', () => {
   describe('80removeduplicatesfromsortedarray2', () => {

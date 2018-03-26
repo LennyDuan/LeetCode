@@ -1,5 +1,5 @@
-import { longestPalindrome } from '../../app/medium/5longestpalindromicsubstring';
 import { assert } from 'chai';
+import { longestPalindrome } from '../../app/medium/5longestpalindromicsubstring';
 
 describe('medium', () => {
   describe('longestpalindromicsubstring', () => {

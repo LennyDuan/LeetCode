@@ -1,5 +1,5 @@
-import { convert } from '../../app/medium/6zigzagconversion';
 import { assert } from 'chai';
+import { convert } from '../../app/medium/6zigzagconversion';
 
 describe('medium', () => {
   describe('6zigzagconversion', () => {
