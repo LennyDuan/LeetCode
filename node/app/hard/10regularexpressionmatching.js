@@ -98,7 +98,7 @@ const isMatch = function (s, p) {
       reg = reg.slice(2);
     } else if (regF === '*') {
       // 'a*' Match 'aaaaa'
-      info('XXXX Match \'X*\' - Mutil');
+      info(`${strF}.. Match ${strS}* - Mutil`);
       while (reg.charAt(0) === '*') {
         const st = str.charAt(0);
         if (st === strS) {
