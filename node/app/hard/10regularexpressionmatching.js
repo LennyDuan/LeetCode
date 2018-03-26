@@ -23,14 +23,20 @@ const isMatch = function (s, p) {
     debug(`reg: [${reg}]`);
 
     if (reg === '.') {
+      debug(`. Match [${reg}]`)
       i += 1;
       j += 1;
     } else if (reg === str) {
+      debug(`[${reg}] Match [${str}]`)
       i += 1;
       j += 1;
     } else if (p.charAt(j + 1) === '*') {
+      debug(`[${str}] Match 'X*' - 0`)
       j += 2;
     } else if (reg === '*' && j > 0) {
+      // 'a*' Match 'aaaaa'
+      debug(`XXXX Match 'X*' - Mutil`)
+
       const matchP = p.charAt(j - 1);
       debug(`matchP: [${reg}]`);
 

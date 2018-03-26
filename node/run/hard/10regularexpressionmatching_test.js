@@ -57,6 +57,12 @@ describe('hard', () => {
         const actual = isMatch('aaa', 'ab*a');
         assert.deepEqual(expect, actual);
       });
+
+      it('isMatch("aaa","ab*a*c*a") → false', async () => {
+        const expect = true;
+        const actual = isMatch('aaa', 'ab*a*c*a');
+        assert.deepEqual(expect, actual);
+      });
     });
   });
 });
