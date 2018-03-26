@@ -103,7 +103,6 @@ const isMatch = function (s, p) {
         info(`Prev X* is: [${strS}*]`)
       }
 
-
       str = str.slice(1);
       reg = reg.slice(1);
     } else if (reg.charAt(1) === '*') {
