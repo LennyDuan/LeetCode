@@ -8,7 +8,7 @@ import { ListNode } from '../../src/util/class/linkedlist';
 // Medium - Merge 2 pair:  is not difficult.
 // Time(O) -> O(Nlogk); Space(O) -> O(1)
 
-// A bit Harder - Merge Compare one by one: I used here
+// A Fucking Harder - Merge Compare one by one: I used here
 // Time(O) -> O(kN); Space(O) -> O(N)
 
 /**
