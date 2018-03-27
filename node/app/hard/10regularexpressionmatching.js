@@ -6,11 +6,26 @@ import { info, debug } from '../../src/util/logger';
  * @return {boolean}
  */
 
- // Use Recursion method: SELF CODE
- const isMatch = function (s, p) {
-   info(`Current S: [${s}]; P: [${p}]`);
- };
+// Use Recursion method: SELF CODE
+const isMatch = function (s, p) {
+  info(`Current S: [${s}]; P: [${p}]`);
+  if (p === '') {
+    info(`\n------\nString should be empty now: [${s}] - [${s === ''}]\n------\n`);
+    return s === '';
+  }
+  const f =
+   (s !== '') &&
+   (s.charAt(0) === p.charAt(0) || p.charAt(0) === '.');
+  debug(`First Match s: [${s.charAt(0)}]; p:[${p.charAt(0)}]`);
 
+  if (p.length >= 2 && p.charAt(1) === '*') {
+    debug(`Next 2 char DO have *** in p: ${p.slice(0, 2)}`)
+    return (isMatch(s, p.substring(2))) ||
+     (f && isMatch(s.substring(1), p));
+  }
+  debug(`Next 2 char do not have * in p: ${p.slice(0, 2)}`)
+  return f && isMatch(s.substring(1), p.substring(1));
+};
 
 // ************** PASS: Use Recursion method: Guide **************
 // const isMatch = function (s, p) {
