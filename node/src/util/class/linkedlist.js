@@ -1,7 +1,8 @@
 class ListNode {
-  constructor(value) {
+  constructor(value, next) {
     this.value = value;
-    this.next = null;
+    if (next) this.next = next;
+    else this.next = null;
   }
 }
 

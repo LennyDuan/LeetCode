@@ -22,6 +22,14 @@ describe('util', () => {
         assert.deepEqual(2, node.next.value);
       });
 
+      it('Should be able to assgin a node to next in contractor', () => {
+        const nodeNext = new ListNode(2);
+        assert.deepEqual(2, nodeNext.value);
+        const node = new ListNode(1, nodeNext);
+        assert.deepEqual(2, node.next.value);
+      });
+
+
       it('Should return expected toString', () => {
         const node = new ListNode(1);
         assert.deepEqual(1, node.toString());
