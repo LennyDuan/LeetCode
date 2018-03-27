@@ -6,6 +6,7 @@ info(ListNode);
 describe('util', () => {
   describe('class', () => {
     describe('linkedlist', () => {
+
       it('Should create a ListNode object', () => {
         const node = new ListNode(1);
         assert.deepEqual(1, node.value);
