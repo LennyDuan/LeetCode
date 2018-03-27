@@ -6,10 +6,25 @@ import { info, debug } from '../../src/util/logger';
  * @return {boolean}
  */
 // Use Recursion method
- var isMatch = function(s, p) {
-     if s
-     return true;
- };
+const isMatch = function (s, p) {
+  info(`Current S: [${s}]; P: [${p}]`);
+  if (p === '') {
+    info(`\n------\nString should be empty now: [${s}] - [${s === ''}]\n------\n`);
+    return (s === '');
+  }
+
+  const firstMatch = (s !== '' &&
+  (s.charAt(0) === p.charAt(0) || p.charAt(0) === '.'));
+  debug(`First Match s: [${s.charAt(0)}]; p:[${p.charAt(0)}]`);
+
+  if (p.length >= 2 && p.charAt(1) === '*') {
+    debug(`Next 2 char DO have *** in p: ${p.slice(0, 2)}`)
+    return (isMatch(s, p.substring(2))
+            || (firstMatch && isMatch(s.substring(1), p)));
+  }
+  debug(`Next 2 char do not have * in p: ${p.slice(0, 2)}`)
+  return firstMatch && isMatch(s.substring(1), p.substring(1));
+};
 
 // const isMatchV1 = function (s, p) {
 //   info(`String is [${s}]\nRegExp is: [${p}]`);
