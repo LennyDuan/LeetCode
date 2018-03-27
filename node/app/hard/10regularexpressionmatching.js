@@ -19,11 +19,11 @@ const isMatch = function (s, p) {
   debug(`First Match s: [${s.charAt(0)}]; p:[${p.charAt(0)}]`);
 
   if (p.length >= 2 && p.charAt(1) === '*') {
-    debug(`Next 2 char DO have *** in p: ${p.slice(0, 2)}`)
+    debug(`Next 2 char DO have *** in p: ${p.slicae(0, 2)}`);
     return (isMatch(s, p.substring(2))) ||
      (f && isMatch(s.substring(1), p));
   }
-  debug(`Next 2 char do not have * in p: ${p.slice(0, 2)}`)
+  debug(`Next 2 char do not have * in p: ${p.slice(0, 2)}`);
   return f && isMatch(s.substring(1), p.substring(1));
 };
 
