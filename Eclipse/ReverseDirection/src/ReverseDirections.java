@@ -2,13 +2,7 @@
 public class ReverseDirections {
 
 	public static void main(String[] args) {
-		String [] directions = //Directions.getDirections();
-				new String [] {
-				"1: Start at 34 Flat Street facing north. Drive 15 miles.", 
-				"2: Turn left on Morning Light Drive. Drive 4 miles.",
-				"3: Turn right on South Park Lane. Drive 3.3 miles.",
-				"4: Turn right on San Francisco Lane. Drive 0.4 miles.",
-				"5: Stop at 17 San Francisco Lane facing east."};
+		String [] directions = Directions.getDirections();
 		System.out.println("----------Directions------------");
 		Directions.print(directions);
 		String [] reverseDirections = reverseDirections(directions);
@@ -23,14 +17,26 @@ public class ReverseDirections {
 		reversed[0] = changeLastLine(dir);
 		if (lastLineNumber >= 2) {
 			reversed[reversed.length - 2] = changeLineBeforeLastLine(dir); 
-			//reverseOtherLines(dir, reversed);
+			reverseOtherLines(dir, reversed);
 		}
 		return reversed;
 	}
 	
+	public static void reverseOtherLines(String[] dir, String[] reversed) {
+		for(int line = 1; line < dir.length - 2; line++) {
+			String changedLine = dir[dir.length - 2 - line];
+			if (changedLine.contains("left")) {
+				reversed[line] = changedLine.replace("left", "RIGHT");
+			} else if (changedLine.contains("right")) {
+				reversed[line] = changedLine.replace("right", "LEFT");
+			}
+		}
+	};
+	
 	public static String changeFirstLine(String[] lines) {
 		String changedLine = "";
 		// Call the changeCompassDirection method to change the facing direction changedLine = changeCompassDirection(lines[0]);
+		changedLine = changeCompassDirection(lines[0]);
 		// Call the StopStart method to change Start to Stop
 		changedLine = changeStopStart(changedLine);
 		// find the index of the character ":"
@@ -43,12 +49,15 @@ public class ReverseDirections {
 		int indexOfPeriod1 = changedLine.indexOf(".");
 		// Get rid of the Drive x miles
 		changedLine = changedLine.substring(0, indexOfPeriod1 + 1);
-		return changedLine; }
-		public static String changeLastLine(String[] lines) {
+		return changedLine; 
+	}
+	
+	public static String changeLastLine(String[] lines) {
 		String changedLine = "";
 		changedLine = changeCompassDirection(lines[lines.length - 1]); 
 		// CallchangeCompassDirection method to change the facing direction changedLine = changeStopStart(changedLine); 
-		// Call the StopStart methodto change Start to Stop
+		// Call the StopStart method to change Start to Stop
+		changedLine = changeStopStart(changedLine);
 		int indexOfPeriod2 = lines[lines.length - 2].indexOf("."); 
 		// find the index of the first period "."
 		String milesFirstLine = lines[lines.length - 2].substring(indexOfPeriod2+ 1);
@@ -63,6 +72,7 @@ public class ReverseDirections {
 		// Change the line number of the last line to be the first line and save the String
 		return changedLine;
 	}
+	
 	public static String changeLineBeforeLastLine(String[] lines){ 
 		String changedLine = "";
 		String newTurnDirection = "";
