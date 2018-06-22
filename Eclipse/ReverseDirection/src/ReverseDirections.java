@@ -22,9 +22,12 @@ public class ReverseDirections {
 		return reversed;
 	}
 	
+	// Create function reverseOtherLines
 	public static void reverseOtherLines(String[] dir, String[] reversed) {
+		// Loop the innerlines 
 		for(int line = 1; line < dir.length - 2; line++) {
 			String changedLine = dir[dir.length - 2 - line];
+			// replace 'left' to 'RIGHT' and 'right' to 'LEFT
 			if (changedLine.contains("left")) {
 				reversed[line] = changedLine.replace("left", "RIGHT");
 			} else if (changedLine.contains("right")) {
@@ -36,6 +39,7 @@ public class ReverseDirections {
 	public static String changeFirstLine(String[] lines) {
 		String changedLine = "";
 		// Call the changeCompassDirection method to change the facing direction changedLine = changeCompassDirection(lines[0]);
+		// add missing function: changeCompassDirection
 		changedLine = changeCompassDirection(lines[0]);
 		// Call the StopStart method to change Start to Stop
 		changedLine = changeStopStart(changedLine);
@@ -54,9 +58,10 @@ public class ReverseDirections {
 	
 	public static String changeLastLine(String[] lines) {
 		String changedLine = "";
-		changedLine = changeCompassDirection(lines[lines.length - 1]); 
 		// CallchangeCompassDirection method to change the facing direction changedLine = changeStopStart(changedLine); 
+		changedLine = changeCompassDirection(lines[lines.length - 1]); 
 		// Call the StopStart method to change Start to Stop
+		// add missing function: changeStopStart
 		changedLine = changeStopStart(changedLine);
 		int indexOfPeriod2 = lines[lines.length - 2].indexOf("."); 
 		// find the index of the first period "."
