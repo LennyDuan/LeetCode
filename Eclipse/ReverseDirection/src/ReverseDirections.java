@@ -132,5 +132,4 @@ public class ReverseDirections {
 		}
 	return turnValue;
 	}
-
 }
